@@ -4,21 +4,11 @@ public class Player {
 	//Fields
 	private String playerName;
 	private int index=0;
-	private int replaceCount=0;
 	private Card[] cards = new Card[5] ;
 	//getter setter 
 	public String getplayerName()
 	{
 		return playerName;
-	}
-	public int getreplaceCount() { return replaceCount;}
-	public boolean setreplaceCount(int n) {
-		if(n>0 && n<=3)replaceCount=n;
-		else {
-			return false;
-		}
-		return true;
-		
 	}
    //Constructor
     public Player(String playerName)
