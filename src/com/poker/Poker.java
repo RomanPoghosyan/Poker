@@ -5,11 +5,14 @@ import java.util.ArrayList;
 
 
 public class Poker {
+<<<<<<< HEAD
 	public static void main(String[] args)
 	{
 	  
 	}
 	
+=======
+>>>>>>> a676cab1b726a66d0a72fdce1cd53796b7a9615e
     ArrayList<Card> cards;
     Player[] players;
 
@@ -20,7 +23,7 @@ public class Poker {
             JFrame f = new JFrame();
             String name=JOptionPane.showInputDialog(f,"Enter Name of player " + (i + 1));
             players[i] = new Player(name);
-            players[i].add(cards.remove(cards.size() - 1));
+//            players[i].add(cards.remove(cards.size() - 1));
         }
     }
 
@@ -43,5 +46,8 @@ public class Poker {
         int dialogResult = JOptionPane.showConfirmDialog (null, p.getplayerName() + " would you like to change your cards?","Warning",dialogButton);
         return dialogResult == JOptionPane.YES_OPTION;
     }
+<<<<<<< HEAD
 
+=======
+>>>>>>> a676cab1b726a66d0a72fdce1cd53796b7a9615e
 }

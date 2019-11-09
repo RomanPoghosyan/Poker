@@ -1,7 +1,10 @@
 package com.poker;
 
 public class Card {
+<<<<<<< HEAD
 
+=======
+>>>>>>> a676cab1b726a66d0a72fdce1cd53796b7a9615e
 	private String color;
 	private String name;
 
@@ -17,5 +20,8 @@ public class Card {
 			return false;
 
 	}
+<<<<<<< HEAD
 
+=======
+>>>>>>> a676cab1b726a66d0a72fdce1cd53796b7a9615e
 }
