@@ -49,8 +49,4 @@ public class Player {
 		}
 		return false;
 	}
-
-	public Card[] getCards(){
-		return null;
-	}
 }
