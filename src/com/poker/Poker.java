@@ -22,14 +22,33 @@ public class Poker {
     public void anyoneWantsToChange(){
         for(int i = 0; i < players.length; i++){
             if(playerWantsToChange(players[i])){
-                players[i].changeCards();
+                changeCards(players[i]);
+            }
+        }
+    }
+
+    public void changeCards(Player p){
+        Object[] options = new Object[5];
+        Card[] playerCards = p.getCards();
+        for(int i = 0; i < playerCards.length; i++) {
+            String card = playerCards[i].getSuit() + " " + playerCards[i].getRank();
+            options[i] = new JCheckBox(card);
+        }
+
+        JOptionPane.showOptionDialog(null, "Which cards do you want to replace?",
+                "Replace!",
+                JOptionPane.DEFAULT_OPTION, JOptionPane.ERROR_MESSAGE, null, options, options[0]);
+
+        for(int i = 0; i < options.length; i++) {
+            if (((JCheckBox)options[i]).isSelected()) {
+                p.replace(playerCards[i], cards.remove(cards.size() - 1));
             }
         }
     }
 
     public boolean playerWantsToChange(Player p){
         int dialogButton = JOptionPane.YES_NO_OPTION;
-        int dialogResult = JOptionPane.showConfirmDialog (null, p.getName() + " would you like to change your cards?","Warning",dialogButton);
+        int dialogResult = JOptionPane.showConfirmDialog (null, p.getPlayerName() + " would you like to change your cards?","Warning",dialogButton);
         return dialogResult == JOptionPane.YES_OPTION;
     }
 }

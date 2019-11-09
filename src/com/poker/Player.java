@@ -7,7 +7,7 @@ public class Player {
 	private Card[] cards = new Card[5];
 
 	// getter setter
-	public String getplayerName() {
+	public String getPlayerName() {
 		return playerName;
 	}
 
@@ -43,5 +43,9 @@ public class Player {
 			}
 		}
 		return false;
+	}
+
+	public Card[] getCards(){
+		return null;
 	}
 }
