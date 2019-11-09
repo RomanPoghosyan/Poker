@@ -1,6 +1,7 @@
 package com.poker;
 
 public class Card {
+
 	private String color;
 	private String name;
 
@@ -16,4 +17,5 @@ public class Card {
 			return false;
 
 	}
+
 }
