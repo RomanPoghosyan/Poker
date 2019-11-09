@@ -30,6 +30,11 @@ public class Player {
 
 		return null;
 	}
+	//Get all cards 
+	public Card[] getCards()
+	{
+		return cards;
+	}
 
 	// Adds a card if there is a free place otherwise returns false
 	public boolean add(Card cardtoAdd) {
