@@ -5,17 +5,23 @@ import java.util.ArrayList;
 
 
 public class Poker {
-    ArrayList<Card> cards;
+    ArrayList<Card> cards = new ArrayList<>();
     Player[] players;
 
     public Poker(int playersCount){
         players = new Player[playersCount];
 
+        for ( Suits suit : Suits.values() ) {
+            for (Ranks rank : Ranks.values()) {
+                cards.add(new Card(suit, rank));
+            }
+        }
         for(int i = 0; i < playersCount; i++){
             JFrame f = new JFrame();
             String name=JOptionPane.showInputDialog(f,"Enter Name of player " + (i + 1));
             players[i] = new Player(name);
-//            players[i].add(cards.remove(cards.size() - 1));
+            for(int j = 0; j < 5; j++)
+                players[i].add(cards.remove(cards.size() - 1));
         }
     }
 

@@ -2,19 +2,31 @@ package com.poker;
 
 public class Card {
 
-	private String color;
-	private String name;
+	private Suits suit;
+	private Ranks rank;
 
-	public Card(String color, String name) {
-		this.color = color;
-		this.name = name;
+	public Card(Suits suit, Ranks rank) {
+		this.suit = suit;
+		this.rank = rank;
 	}
 
 	public boolean equals(Card obj) {
-		if (obj.color.equals(color) && obj.name.equals(name))
-			return true;
-		else
-			return false;
+		return (obj.suit.equals(suit) && obj.rank.equals(rank));
 	}
 
+	public String getSuit() {
+		return suit.toString();
+	}
+
+	public void setSuit(Suits suit) {
+		this.suit = suit;
+	}
+
+	public String getRank() {
+		return rank.toString();
+	}
+
+	public void setRank(Ranks rank) {
+		this.rank = rank;
+	}
 }
