@@ -1,11 +1,11 @@
 package com.poker;
 
 import javax.swing.*;
-import java.util.ArrayList;
+import java.util.LinkedList;
 
 
 public class Poker {
-    ArrayList<Card> cards = new ArrayList<>();
+    LinkedList<Card> cards = new LinkedList<Card>();
     Player[] players;
 
     public Poker(int playersCount){
@@ -34,22 +34,27 @@ public class Poker {
     }
 
     public void changeCards(Player p){
-        Object[] options = new Object[5];
-        Card[] playerCards = p.getCards();
-        for(int i = 0; i < playerCards.length; i++) {
-            String card = playerCards[i].getSuit() + " " + playerCards[i].getRank();
-            options[i] = new JCheckBox(card);
-        }
+        LinkedList<Object> options = new LinkedList<Object>();
+        LinkedList<Card> playerCards = p.getCards();
+           for (Card card : playerCards) {
+        	   String cardString =card.getSuit() + " " + card.getRank();
+               options.push(new JCheckBox(cardString));      
+		}
+            
 
         JOptionPane.showOptionDialog(null, "Which cards do you want to replace?",
                 "Replace!",
-                JOptionPane.DEFAULT_OPTION, JOptionPane.ERROR_MESSAGE, null, options, options[0]);
+                JOptionPane.DEFAULT_OPTION, JOptionPane.ERROR_MESSAGE, null, options.toArray(), options.getFirst());
 
-        for(int i = 0; i < options.length; i++) {
-            if (((JCheckBox)options[i]).isSelected()) {
-                p.replace(playerCards[i], cards.remove(cards.size() - 1));
+        for (Object option : options) {
+        	int i=0;
+            if (((JCheckBox)option).isSelected()) {
+                p.replace(playerCards.get(i), cards.remove(cards.size() - 1));
             }
-        }
+            i++;
+        	
+		} 
+        
     }
 
     public boolean playerWantsToChange(Player p){
