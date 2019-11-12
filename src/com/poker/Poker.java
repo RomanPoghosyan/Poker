@@ -1,14 +1,17 @@
 package com.poker;
 
+
+
+
 import javax.swing.*;
 import java.util.ArrayList;
-
 
 public class Poker {
     ArrayList<Card> cards = new ArrayList<>();
     Player[] players;
 
     public Poker(int playersCount){
+
         players = new Player[playersCount];
 
         for ( Suits suit : Suits.values() ) {

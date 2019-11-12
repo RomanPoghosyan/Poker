@@ -1,7 +1,10 @@
 <component name="libraryTable">
   <library name="Stack">
     <CLASSES>
-      <root url="jar://$USER_HOME$/Downloads/Stack.jar!/" />
+      <root url="jar://$PROJECT_DIR$/Stack.jar!/" />
+      <root url="jar://$PROJECT_DIR$/LinkedListWF.jar!/" />
+      <root url="jar://$PROJECT_DIR$/Queue.jar!/" />
+      <root url="jar://$PROJECT_DIR$/dictionary.jar!/" />
     </CLASSES>
     <JAVADOC />
     <SOURCES />
