@@ -19,9 +19,11 @@ public class Poker {
         for (int i = 0; i < playersCount; i++) {
             JFrame f = new JFrame();
             String name = JOptionPane.showInputDialog(f, "Enter Name of player " + (i + 1));
-            players.push(new Player(name));
-            for (int j = 0; j < 5; j++)
-                players.getLast().addCard(cards.remove(cards.size() - 1));
+            Player p = new Player(name);
+            for (int j = 0; j < 5; j++) {
+                p.addCard(cards.remove(cards.size() - 1));
+            }
+            players.push(p);
         }
     }
 
