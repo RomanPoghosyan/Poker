@@ -10,6 +10,7 @@ import java.util.LinkedList;
 
 public class Poker {
     LinkedList<Card> cards = new LinkedList<>();
+    LinkedList<Card> bat = new LinkedList<>();
     LinkedList<Player> players;
 
     public Poker(int playersCount) {
@@ -52,6 +53,7 @@ public class Poker {
         for (Object option : options) {
             int i = 0;
             if (((JCheckBox) option).isSelected()) {
+                bat.add(playerCards.get(i));
                 p.replace(playerCards.get(i), cards.remove(cards.size() - 1));
             }
             i++;
