@@ -6,10 +6,10 @@ import java.util.LinkedList;
 
 public class Poker {
     LinkedList<Card> cards = new LinkedList<Card>();
-    Player[] players;
+    LinkedList<Player> players;
 
     public Poker(int playersCount){
-        players = new Player[playersCount];
+        players = new LinkedList<Player>();
 
         for ( Suits suit : Suits.values() ) {
             for (Ranks rank : Ranks.values()) {
@@ -19,18 +19,16 @@ public class Poker {
         for(int i = 0; i < playersCount; i++){
             JFrame f = new JFrame();
             String name=JOptionPane.showInputDialog(f,"Enter Name of player " + (i + 1));
-            players[i] = new Player(name);
+            players.push(new Player(name));
             for(int j = 0; j < 5; j++)
-                players[i].add(cards.remove(cards.size() - 1));
+                players.getLast().add(cards.remove(cards.size() - 1));
         }
     }
 
     public void anyoneWantsToChange(){
-        for(int i = 0; i < players.length; i++){
-            if(playerWantsToChange(players[i])){
-                changeCards(players[i]);
-            }
-        }
+      for (Player player : players) 
+            if(playerWantsToChange(player))
+            	changeCards(player);
     }
 
     public void changeCards(Player p){
