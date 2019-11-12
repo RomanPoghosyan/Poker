@@ -27,9 +27,9 @@ public class Player {
 
 	// Replaces a card and returns the replaced card
 	public Card replace(Card card, Card newCard) {
-		if(cardList.removeIf(x-> x.equals(card)))
-	    {cardList.push(newCard);
-	     return card;
+		if(cardList.removeIf(x -> x.equals(card))){
+			cardList.push(newCard);
+	     	return card;
 	    }
 		return null;
 	}

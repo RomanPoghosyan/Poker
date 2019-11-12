@@ -21,6 +21,9 @@ public class Poker {
                 cards.add(new Card(suit, rank));
             }
         }
+
+        cards = shuffleCards(cards);
+
         for (int i = 0; i < playersCount; i++) {
             JFrame f = new JFrame();
             String name = JOptionPane.showInputDialog(f, "Enter Name of player " + (i + 1));
@@ -46,10 +49,12 @@ public class Poker {
             options.add(new JCheckBox(cardString));
         }
 
-        JOptionPane.showOptionDialog(null, "Which cards do you want to replace?",
-                "Replace!",
+        options.add("Ok");
+
+        JOptionPane.showOptionDialog(null, "Which cards do you want to replace?", "Replace!",
                 JOptionPane.DEFAULT_OPTION, JOptionPane.ERROR_MESSAGE, null, options.toArray(), null);
 
+        options.remove(options.size() - 1);
         for (Object option : options) {
             int i = 0;
             if (((JCheckBox) option).isSelected()) {
@@ -67,9 +72,19 @@ public class Poker {
         int dialogResult = JOptionPane.showConfirmDialog(null, p.getPlayerName() + " would you like to change your cards?", "Warning", dialogButton);
         return dialogResult == JOptionPane.YES_OPTION;
     }
-    public LinkedList<Card> shuffleCards(LinkedList<Card> cards) 
-    {
+
+    public LinkedList<Card> shuffleCards(LinkedList<Card> cards){
     	java.util.Collections.shuffle(cards);
     	return cards;
+    }
+
+    public void showPlayersAndCards(){
+        for (Player player : players){
+            System.out.println(player.getPlayerName());
+            for(Card c : player.getCards()){
+                System.out.print(c.getRank() + " " + c.getSuit() + ", ");
+            }
+            System.out.println();
+        }
     }
 }
