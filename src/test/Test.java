@@ -1,10 +1,13 @@
 package test;
 
+import com.poker.Card;
 import com.poker.Poker;
+import com.poker.Ranks;
+import com.poker.Suits;
 
 public class Test {
     public static void main(String[] args) {
-        Poker p = new Poker(2);
-        p.anyoneWantsToChange();
+       Poker poker = new Poker(3);
+       poker.anyoneWantsToChange();
     }
 }

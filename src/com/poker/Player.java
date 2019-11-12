@@ -1,52 +1,51 @@
 package com.poker;
 
+import java.util.LinkedList;
+
 public class Player {
 	// Fields
 	private String playerName;
-	private int index = 0;
-	private Card[] cards = new Card[5];
+	private int maxCards=4;
+	private LinkedList<Card> cardList = new LinkedList<Card>();
 
-	// getter setter
+	
+
+	// Constructor Overloaded
+	public Player(String playerName) {
+		this.playerName = playerName;
+		
+	}
+	public Player(String playerName, int maxCards) {
+		this.playerName = playerName;
+		this.maxCards =maxCards;
+	}
+	
 	public String getPlayerName() {
 		return playerName;
 	}
-
-	// Constructor
-	public Player(String playerName) {
-		this.playerName = playerName;
-		for (int i = 0; i < 5; i++)
-			cards[i] = null;
-	}
+	
 
 	// Replaces a card and returns the replaced card
-	public Card replace(Card card, Card cardToReplaceWith) {
-		Card tempCard = null;
-		for (int i = 0; i <= 5; i++)
-			if (cards[i].equals(card)) {
-				tempCard = cards[i];
-				cards[i] = cardToReplaceWith;
-				return tempCard;
-			}
-
+	public Card replace(Card card, Card newCard) {
+		if(cardList.removeIf(x-> x.equals(card)))
+	    {cardList.push(newCard);
+	     return card;
+	    }
 		return null;
 	}
 	//Get all cards 
-	public Card[] getCards()
+	public LinkedList<Card> getCards()
 	{
-		return cards;
+		return cardList;
 	}
 
 	// Adds a card if there is a free place otherwise returns false
 	public boolean add(Card cardToAdd) {
-		if (index == 5)
-			return false;
-		for (int i = 0; i < 5; i++) {
-			if (cards[i] == null) {
-				cards[i] = cardToAdd;
-				index++;
-				return true;
-			}
-		}
+		if(cardList.size()==maxCards)
 		return false;
+		else {
+			cardList.push(cardToAdd);
+			return true;
+		}
 	}
 }
