@@ -21,7 +21,7 @@ public class Poker {
             String name = JOptionPane.showInputDialog(f, "Enter Name of player " + (i + 1));
             players.push(new Player(name));
             for (int j = 0; j < 5; j++)
-                players.getLast().add(cards.remove(cards.size() - 1));
+                players.getLast().addCard(cards.remove(cards.size() - 1));
         }
     }
 

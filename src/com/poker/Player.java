@@ -40,7 +40,7 @@ public class Player {
 	}
 
 	// Adds a card if there is a free place otherwise returns false
-	public boolean add(Card cardToAdd) {
+	public boolean addCard(Card cardToAdd) {
 		if(cardList.size()==maxCards)
 		return false;
 		else {
