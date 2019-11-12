@@ -7,5 +7,9 @@
     </content>
     <orderEntry type="inheritedJdk" />
     <orderEntry type="sourceFolder" forTests="false" />
+    <orderEntry type="library" name="Queue" level="project" />
+    <orderEntry type="library" name="Stack" level="project" />
+    <orderEntry type="library" name="LinkedListWF" level="project" />
+    <orderEntry type="library" name="dictionary" level="project" />
   </component>
 </module>
