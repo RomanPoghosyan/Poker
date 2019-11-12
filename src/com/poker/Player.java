@@ -8,13 +8,12 @@ public class Player {
 	private int maxCards=4;
 	private LinkedList<Card> cardList = new LinkedList<Card>();
 
-	
-
 	// Constructor Overloaded
 	public Player(String playerName) {
 		this.playerName = playerName;
 		
 	}
+
 	public Player(String playerName, int maxCards) {
 		this.playerName = playerName;
 		this.maxCards =maxCards;

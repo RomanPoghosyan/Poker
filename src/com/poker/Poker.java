@@ -55,14 +55,13 @@ public class Poker {
                 JOptionPane.DEFAULT_OPTION, JOptionPane.ERROR_MESSAGE, null, options.toArray(), null);
 
         options.remove(options.size() - 1);
+        int i = 0;
         for (Object option : options) {
-            int i = 0;
             if (((JCheckBox) option).isSelected()) {
                 bat.add(playerCards.get(i));
                 p.replace(playerCards.get(i), cards.remove(cards.size() - 1));
             }
             i++;
-
         }
 
     }
@@ -82,7 +81,7 @@ public class Poker {
         for (Player player : players){
             System.out.println(player.getPlayerName());
             for(Card c : player.getCards()){
-                System.out.print(c.getRank() + " " + c.getSuit() + ", ");
+                System.out.print(c.getSuit() + " " + c.getRank() + ", ");
             }
             System.out.println();
         }
