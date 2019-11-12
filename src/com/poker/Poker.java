@@ -1,6 +1,10 @@
 package com.poker;
 
 import javax.swing.*;
+
+import com.sun.xml.internal.ws.policy.privateutil.PolicyUtils.Collections;
+
+import java.util.Collection;
 import java.util.LinkedList;
 
 
@@ -60,5 +64,10 @@ public class Poker {
         int dialogButton = JOptionPane.YES_NO_OPTION;
         int dialogResult = JOptionPane.showConfirmDialog(null, p.getPlayerName() + " would you like to change your cards?", "Warning", dialogButton);
         return dialogResult == JOptionPane.YES_OPTION;
+    }
+    public LinkedList<Card> shuffleCards(LinkedList<Card> cards) 
+    {
+    	java.util.Collections.shuffle(cards);
+    	return cards;
     }
 }
